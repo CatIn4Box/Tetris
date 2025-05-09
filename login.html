@@ -65,7 +65,7 @@
       const savedUser = localStorage.getItem(username);
       if (savedUser && JSON.parse(savedUser).password === password) {
         localStorage.setItem("loggedInUser", username);
-        window.location.href = "tetris.html";
+        window.location.href = "game.html";
       } else {
         alert("Credenziali non valide.");
       }
