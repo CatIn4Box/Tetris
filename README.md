@@ -9,3 +9,9 @@
 > - Enter the game and try to get the highest score.
 >
 >  Further updates upcoming.
+
+##To-Do list
+
+1. create a **local** score leaderboard
+2. connection to a SQL server with PHP
+3. create a **global** score leaderboard
