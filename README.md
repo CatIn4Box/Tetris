@@ -14,6 +14,7 @@
 
 1. create a **local** score leaderboard
 2. make some order on the code
-3. connection to a SQL server with PHP
-4. create a **global** score leaderboard
-5. **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
+3. add "choose difficulty" button
+4. connection to a SQL server with PHP
+5. create a **global** score leaderboard
+6. **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
