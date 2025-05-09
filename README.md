@@ -13,6 +13,7 @@
 ## To-Do list
 
 1. create a **local** score leaderboard
-2. connection to a SQL server with PHP
-3. create a **global** score leaderboard
-4. **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
+2. make some order on the code
+3. connection to a SQL server with PHP
+4. create a **global** score leaderboard
+5. **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
