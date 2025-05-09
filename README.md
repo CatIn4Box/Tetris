@@ -10,7 +10,7 @@
 >
 >  Further updates upcoming.
 
-##To-Do list
+## To-Do list
 
 1. create a **local** score leaderboard
 2. connection to a SQL server with PHP
