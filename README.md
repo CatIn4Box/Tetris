@@ -1,5 +1,5 @@
 
-# SkibidiTetris
+# VeryLongItemName aka(SkibidiTetris)
 
 #### trying to make a tetris project
 
