@@ -15,4 +15,4 @@
 1. create a **local** score leaderboard
 2. connection to a SQL server with PHP
 3. create a **global** score leaderboard
-4. invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)
+4. **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
