@@ -1,13 +1,7 @@
-===============
 
 # SkibidiTetris
-  
-===============
----------------
 
 ### trying to make a tetris project
-
----------------
 
 ## Now on **TEST** version
 >
