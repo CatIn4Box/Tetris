@@ -15,7 +15,7 @@
 1. create a **local** score leaderboard
 2. make some order on the code
 3. add *"choose difficulty"* button
-4. settings menu
+4. ##### settings menu
    >
    > - key binding
    > - music on/off, set volume
