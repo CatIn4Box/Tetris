@@ -15,8 +15,8 @@
 1. :heavy_check_mark: create a **local** score leaderboard & AFK control
 2. :x: make some order on the code
 3. :x: add *"choose difficulty"* button
-4. :x: settings menu <br>
-   >
+4. :x: settings menu
+   > 
    > - key binding
    > - music on/off, set volume
    > 
