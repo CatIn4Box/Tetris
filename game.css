@@ -1,0 +1,159 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background: linear-gradient(180deg, #87CEFA 0%, #4682B4 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    animation: fadeIn 2s ease-in-out;
+    overflow: hidden;
+}
+
+canvas { 
+    background: #000; 
+    display: block; 
+    margin: 20px auto; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+table { 
+    margin: 20px auto; 
+    border-collapse: collapse; 
+    background: white; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+td, th { 
+    border: 1px solid #999; 
+    padding: 5px 10px; 
+    text-align: center;
+}
+
+#popup, #startScreen, #overlay {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+#scoreboard {
+    position: fixed;
+    top: 20%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    max-height: 60%;
+    overflow-y: auto;
+    background: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+    text-align: center;
+}
+
+#scoreboard h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #0c1e2d;
+}
+
+#scoreboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#scoreboard th, #scoreboard td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#scoreboard th {
+    background-color: #e0e7ff;
+    color: #0c1e2d;
+    font-weight: bold;
+}
+
+#scoreboard tr:nth-child(even) {
+    background-color: #f0f4ff;
+}
+
+#overlay {
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 500;
+    display: none;
+}
+
+#popup, #startScreen {
+    display: none;
+}
+
+#Log {
+    padding-top: 10px;
+}
+
+#logout {
+    text-align: right;
+    padding: 10px;
+}
+
+#logout button {
+    padding: 10px;
+    display: flex;
+    font-size: 16px;
+    background-color: #cc2f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#logout button:hover {
+    background-color: #e64343;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #0c1e2d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2f60cc;
+}
+
+input {
+    padding: 8px;
+    margin-top: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
