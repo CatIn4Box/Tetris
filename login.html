@@ -23,6 +23,7 @@
       const savedUser = localStorage.getItem(username);
       if (savedUser && JSON.parse(savedUser).password === password) {
         localStorage.setItem("loggedInUser", username);
+        sessionStorage.setItem("loginTimestamp", Date.now());
         window.location.href = "game.html";
       } else {
         alert("Credenziali non valide.");
