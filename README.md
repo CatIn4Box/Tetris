@@ -12,14 +12,14 @@
 
 ## To-Do list
 
-1. create a **local** score leaderboard
-2. make some order on the code
-3. add *"choose difficulty"* button
-4. #### settings menu
+1. :heavy_check_mark: create a **local** score leaderboard
+2. :x: make some order on the code
+3. :x: add *"choose difficulty"* button
+4. :x: #### settings menu
    >
    > - key binding
    > - music on/off, set volume
    > 
-6. connection to a SQL server with PHP
-7. create a **global** score leaderboard
-8. **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
+6. :x: connection to a SQL server with PHP
+7. :x: create a **global** score leaderboard
+8. :x: **invade [SkibidiChess](https://github.com/bacchettino12345/SkibidiChess)**
