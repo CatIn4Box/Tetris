@@ -195,14 +195,6 @@ function playMusic() {
   audio.play();
 }
 
-document.addEventListener('keydown', event => {
-  if (!gameStarted) return;
-  if (event.keyCode === 37) playerMove(-1);
-  else if (event.keyCode === 39) playerMove(1);
-  else if (event.keyCode === 40) playerDrop();
-  else if (event.keyCode === 38) playerRotate(1);
-});
-
 function startGame() {
   document.getElementById('startScreen').style.display = 'none';
   hidePopup();
@@ -216,6 +208,23 @@ function startGame() {
   playerReset();
   update();
   renderScoreboard();
+
+  document.addEventListener('keydown', event => {
+    switch(event.code) {
+      case 'ArrowLeft':
+        playerMove(-1);
+        break;
+      case 'ArrowRight':
+        playerMove(1);
+        break;
+      case 'ArrowDown':
+        playerDrop();
+        break;
+      case 'ArrowUp':
+        playerRotate(1);
+        break;
+    }
+  });
 
   if (!activityListenersAdded) {
     document.addEventListener("mousemove", resetSessionTimer);
