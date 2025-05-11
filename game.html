@@ -43,6 +43,53 @@
       opacity: 0;
       animation: slideIn 1s forwards;
     }
+
+    #scoreboard {
+    position: fixed;
+    top: 20%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    max-height: 60%;
+    overflow-y: auto;
+    background: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+    text-align: center;
+  }
+
+  #scoreboard h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #0c1e2d;
+  }
+
+  #scoreboard table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #scoreboard th, #scoreboard td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  #scoreboard th {
+    background-color: #e0e7ff;
+    color: #0c1e2d;
+    font-weight: bold;
+  }
+
+  #scoreboard tr:nth-child(even) {
+    background-color: #f0f4ff;
+  }
+
     #overlay {
       width: 100%; height: 100%;
       background: rgba(0,0,0,0.5);
@@ -130,6 +177,21 @@
 
 <!-- Musica di Tetris -->
 <audio id="tetrisMusic" src="music.mp3" preload="auto" loop="true"></audio>
+
+<div id="scoreboard">
+  <h3>Classifica</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Best Score</th>
+      </tr>
+    </thead>
+    <tbody id="scoreboard-body">
+      
+    </tbody>
+  </table>
+</div>
 
 <div id="logout">
   <button onclick="logout()">
@@ -368,6 +430,7 @@ function startGame() {
   gameStarted = true;
   playerReset();
   update();
+  renderScoreboard();
 
   if (!activityListenersAdded) {
     document.addEventListener("mousemove", resetSessionTimer);
@@ -400,6 +463,45 @@ function checkAFK() {
 function resetSessionTimer() {
   checkAFK();
   sessionStorage.setItem("loginTimestamp", Date.now());
+}
+
+function saveBestScore(username, score) {
+  let scores = JSON.parse(localStorage.getItem("scoreboard")) || {};
+  if (!scores[username] || score > scores[username]) {
+    scores[username] = score;
+    localStorage.setItem("scoreboard", JSON.stringify(scores));
+  }
+}
+
+function renderScoreboard() {
+  const tbody = document.getElementById("scoreboard-body");
+  tbody.innerHTML = "";
+
+  const scores = JSON.parse(localStorage.getItem("scoreboard")) || {};
+
+  const sorted = Object.entries(scores)
+    .sort((a, b) => b[1] - a[1]) // ordina per punteggio decrescente
+    .slice(0, 10); // mostra i primi 10
+
+  sorted.forEach(([username, score]) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${username}</td><td>${score}</td>`;
+    tbody.appendChild(row);
+  });
+}
+
+function showPopup() {
+  const username = localStorage.getItem("loggedInUser");
+  saveBestScore(username, player.score);
+  renderScoreboard();
+
+  document.getElementById('overlay').style.display = 'block';
+  document.getElementById('popup').style.display = 'block';
+  document.getElementById('popup').innerHTML = `
+    <h3>Game Over!</h3>
+    <p>Punteggio Finale: ${player.score}</p>
+    <button onclick="startGame()">Play again!</button>
+  `;
 }
 
 // Avvio schermata iniziale
