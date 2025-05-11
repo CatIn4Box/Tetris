@@ -138,6 +138,9 @@
 </div>
 
 <script>
+
+//controllo della sessione
+
 if (!sessionStorage.getItem("loginTimestamp") || !localStorage.getItem("loggedInUser")) {
   alert("Sessione non valida. Effettua il login.");
   window.location.href = "login.html";
@@ -147,7 +150,12 @@ const username = localStorage.getItem("loggedInUser");
 document.getElementById("Log").textContent = `Logged as: ${username}`;
 
 const loginTime = sessionStorage.getItem("loginTimestamp");
-const timeout = 1000*30;
+const timeout = 1000*40;
+
+let activityListenersAdded = false;
+let sessionCheckerInterval;
+
+//inizializza le variabili di gioco
 
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d'); //The getContext() method returns an object with tools (methods) for drawing
@@ -301,7 +309,6 @@ function draw() {
 
 function update(time = 0) {
   if (!gameStarted) return;
-  checkAKF();
   const deltaTime = time - lastTime;
   lastTime = time;
   dropCounter += deltaTime;
@@ -361,28 +368,37 @@ function startGame() {
   gameStarted = true;
   playerReset();
   update();
+
+  if (!activityListenersAdded) {
+    document.addEventListener("mousemove", resetSessionTimer);
+    document.addEventListener("keydown", resetSessionTimer);
+    document.addEventListener("click", resetSessionTimer);
+    activityListenersAdded = true;
+  }
+
+  // Avvia controllo AFK ogni 10 secondi
+  if (!sessionCheckerInterval) {
+    sessionCheckerInterval = setInterval(checkAFK, 10000);
+  }
 }
 
 function logout() {
   localStorage.removeItem("loggedInUser");
+  clearInterval(sessionCheckerInterval);
   window.location.href = "login.html";
 }
 
-function checkAKF()
-{
-  if (!username || !loginTime || ((Date.now() - loginTime) > timeout)) {
-  sessionStorage.clear();
-  alert("Sessione scaduta. Effettua nuovamente il login.");
-  window.location.href = "login.html";
-  }
-  else {
-    document.addEventListener("mousemove", resetSessionTimer);
-    document.addEventListener("keydown", resetSessionTimer);
-    document.addEventListener("click", resetSessionTimer);
+function checkAFK() {
+  const loginTime = sessionStorage.getItem("loginTimestamp");
+  if (!loginTime || (Date.now() - parseInt(loginTime)) > timeout) {
+    sessionStorage.clear();
+    alert("Sessione scaduta. Effettua nuovamente il login.");
+    window.location.href = "login.html";
   }
 }
 
 function resetSessionTimer() {
+  checkAFK();
   sessionStorage.setItem("loginTimestamp", Date.now());
 }
 
