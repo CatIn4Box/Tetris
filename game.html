@@ -11,7 +11,9 @@
       background-attachment: fixed;
       background-size: cover;
       animation: fadeIn 2s ease-in-out;
+      overflow: hidden;
     }
+
     canvas { 
       background: #000; 
       display: block; 
@@ -19,6 +21,7 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.7);
     }
+
     table { 
       margin: 20px auto; 
       border-collapse: collapse; 
@@ -26,11 +29,13 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
+
     td, th { 
       border: 1px solid #999; 
       padding: 5px 10px; 
       text-align: center;
     }
+
     #popup, #startScreen, #overlay {
       position: fixed;
       top: 50%; left: 50%;
@@ -60,35 +65,35 @@
     opacity: 0;
     animation: slideIn 1s forwards;
     text-align: center;
-  }
+    }
 
-  #scoreboard h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #0c1e2d;
-  }
+    #scoreboard h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #0c1e2d;
+    }
 
-  #scoreboard table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+    #scoreboard table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-  #scoreboard th, #scoreboard td {
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    text-align: center;
-    font-size: 14px;
-  }
+    #scoreboard th, #scoreboard td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: center;
+      font-size: 14px;
+    }
 
-  #scoreboard th {
-    background-color: #e0e7ff;
-    color: #0c1e2d;
-    font-weight: bold;
-  }
+    #scoreboard th {
+      background-color: #e0e7ff;
+      color: #0c1e2d;
+      font-weight: bold;
+    }
 
-  #scoreboard tr:nth-child(even) {
-    background-color: #f0f4ff;
-  }
+    #scoreboard tr:nth-child(even) {
+      background-color: #f0f4ff;
+    }
 
     #overlay {
       width: 100%; height: 100%;
@@ -96,17 +101,23 @@
       z-index: 500;
       display: none;
     }
+
     #popup, #startScreen {
       display: none;
+    }
+
+    #Log {
+      padding-top: 10px;
     }
 
     #logout {
       text-align: right;
       padding: 10px;
     }
+
     #logout button {
-      text-align: right;
       padding: 10px;
+      display: flex;
       font-size: 16px;
       background-color: #cc2f2f;
       color: white;
@@ -115,6 +126,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
+
     #logout button:hover {
       background-color: #e64343;
     }
@@ -130,19 +142,23 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
+
     button:hover {
       background-color: #2f60cc;
     }
+
     input {
       padding: 8px;
       margin-top: 10px;
       width: 200px;
       border-radius: 5px;
     }
+
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
+    
     @keyframes slideIn {
       0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
       100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
@@ -209,7 +225,7 @@ if (!sessionStorage.getItem("loginTimestamp") || !localStorage.getItem("loggedIn
 }
 
 const username = localStorage.getItem("loggedInUser");
-document.getElementById("Log").textContent = `Logged as: ${username}`;
+document.getElementById("Log").innerHTML = `<b>Logged in as: ${username}<b>`;
 
 const loginTime = sessionStorage.getItem("loginTimestamp");
 const timeout = 1000*60*2; // in millisecondi
