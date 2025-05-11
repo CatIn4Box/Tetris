@@ -212,7 +212,7 @@ const username = localStorage.getItem("loggedInUser");
 document.getElementById("Log").textContent = `Logged as: ${username}`;
 
 const loginTime = sessionStorage.getItem("loginTimestamp");
-const timeout = 1000*40;
+const timeout = 1000*60*2; // in millisecondi
 
 let activityListenersAdded = false;
 let sessionCheckerInterval;
