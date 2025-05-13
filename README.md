@@ -18,7 +18,7 @@
 4. :heavy_check_mark: settings menu
    > 
    > - :x: key binding
-   > - music on/off, set volume
+   > - :heavy_check_mark: music on/off, set volume
    > 
 6. :x: connection to a SQL server with PHP
 7. :x: create a **global** score leaderboard
