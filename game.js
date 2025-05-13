@@ -28,7 +28,9 @@ let lastTime = 0;
 let gameOver = false;
 let gameStarted = false;
 
-const audio = document.getElementById('tetrisMusic');
+const audio = document.getElementById("game-music");
+const musicToggle = document.getElementById("music-toggle");
+const volumeSlider = document.getElementById("volume-slider");
 
 function createMatrix(w, h) {
   const matrix = [];
@@ -194,6 +196,7 @@ function clearArena() {
 
 function playMusic() {
   audio.play();
+  document.getElementById('music-toggle').checked = true;
 }
 
 function startGame() {
@@ -238,6 +241,18 @@ function startGame() {
   if (!sessionCheckerInterval) {
     sessionCheckerInterval = setInterval(checkAFK, 10000);
   }
+
+  musicToggle.addEventListener("change", () => {
+    if (musicToggle.checked) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  volumeSlider.addEventListener("input", () => {
+    audio.volume = parseFloat(volumeSlider.value);
+  });
 }
 
 function logout() {
@@ -283,6 +298,37 @@ function renderScoreboard() {
     row.innerHTML = `<td>${username}</td><td>${score}</td>`;
     tbody.appendChild(row);
   });
+}
+
+function toggleSettingsMenu() {
+  const menu = document.getElementById("settings-menu");
+  menu.classList.toggle("show");
+
+  if (menu.classList.contains("show")) {
+    document.addEventListener("keydown", escKeyHandler);
+  } else {
+    document.removeEventListener("keydown", escKeyHandler);
+  }
+}
+
+function escKeyHandler(e) {
+  if (e.key === "Escape") {
+    const menu = document.getElementById("settings-menu");
+    menu.classList.remove("show");
+    document.removeEventListener("keydown", escKeyHandler);
+  }
+}
+
+function changeDifficulty(diff) {
+  switch (diff) {
+    case 1: dropInterval = 1000;
+      break;
+    case 2: dropInterval = 500;
+      break;
+    case 3: dropInterval = 250;
+      break;
+  }
+  document.getElementById("speed").innerText = dropInterval;
 }
 
 function showPopup() {

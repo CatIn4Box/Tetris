@@ -7,7 +7,35 @@
 </head>
 <body>
 <div id="settings">
-  <button><img src="settings.svg" alt="SetIMG"></button>
+  
+  <button onclick="toggleSettingsMenu()">
+    <img src="settings.svg" alt="SetIMG">
+  </button>
+
+  <div id="settings-menu">
+    <div class="settings-header">
+      <h3>Settings</h3>
+    </div>
+
+    <div class="option toggle-option">
+      <span>Musica:</span>
+      <input type="checkbox" id="music-toggle">
+    </div>
+
+    <div class="option">
+      <label for="volume-slider">Volume:</label>
+      <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+
+    <div class="option">
+      <label>Cambia difficoltà di gioco:</label>
+      <div id="difficulty-buttons">
+        <button onclick="changeDifficulty(1)">1</button>
+        <button onclick="changeDifficulty(2)">2</button>
+        <button onclick="changeDifficulty(3)">3</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="Log"></div>
@@ -37,7 +65,7 @@
 </div>
 
 <!-- Musica di Tetris -->
-<audio id="tetrisMusic" src="music.mp3" preload="auto" loop="true"></audio>
+<audio id="game-music" src="music.mp3" preload="auto" loop="true"></audio>
 
 <!-- Classifica -->
 <div id="scoreboard">
