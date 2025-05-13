@@ -14,10 +14,10 @@
 
 1. :heavy_check_mark: create a **local** score leaderboard & AFK control
 2. :heavy_check_mark: make some order on the code (+ code explanation)
-3. :x: add *"choose difficulty"* button
-4. :x: settings menu
+3. :heavy_check_mark: add *"choose difficulty"* button
+4. :heavy_check_mark: settings menu
    > 
-   > - key binding
+   > - :x: key binding
    > - music on/off, set volume
    > 
 6. :x: connection to a SQL server with PHP
