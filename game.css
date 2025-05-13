@@ -125,6 +125,31 @@ td, th {
     background-color: #e64343;
 }
 
+#settings {
+    height: 10vh;
+    width: 10vh;
+    position: relative;
+    padding-left: 2vh;
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+#settings button {
+    height: 10vh;
+    width: 10vh;
+    position: relative;
+    padding-left: 2vh;
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+#settings img {
+    height: 10vh;
+    width: 10vh;
+    background-color: transparent;
+    border-radius: 20px;
+}
+
 button {
     padding: 10px 20px;
     margin-top: 10px;
