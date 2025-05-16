@@ -250,7 +250,7 @@ function startGame() {
     }
   });
 
-  volumeSlider.addEventListener("input", () => {
+  volumeSlider.addEventListener("input", () => { //Prende in input il valore che viene dato in imput di tipo range
     audio.volume = parseFloat(volumeSlider.value);
   });
 }
