@@ -196,7 +196,10 @@ function clearArena() {
 
 function playMusic() {
   audio.play();
-  document.getElementById('music-toggle').checked = true;
+}
+
+function pauseMusic() {
+  audio.pause();
 }
 
 function startGame() {
@@ -241,14 +244,6 @@ function startGame() {
   if (!sessionCheckerInterval) {
     sessionCheckerInterval = setInterval(checkAFK, 10000);
   }
-
-  musicToggle.addEventListener("change", () => {
-    if (musicToggle.checked) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  });
 
   volumeSlider.addEventListener("input", () => { //Prende in input il valore che viene dato in imput di tipo range
     audio.volume = parseFloat(volumeSlider.value);

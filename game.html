@@ -16,23 +16,19 @@
     <div class="settings-header">
       <h3>Settings</h3>
     </div>
-
-    <div class="option toggle-option">
-      <span>Musica:</span>
-      <input type="checkbox" id="music-toggle">
-    </div>
-
-    <div class="option">
-      <label for="volume-slider">Volume:</label>
+    <span>Musica:</span>
+    <div class="options">
+      <button id="music-toggle-play" onclick="playMusic()"><img src="audio.svg" alt="play"></button>
+      <button id="music-toggle-pause" onclick="pauseMusic()"><img src="mute.svg" alt="pause"></button>
       <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
     </div>
 
     <div class="option">
       <label>Cambia difficoltà di gioco:</label>
       <div id="difficulty-buttons">
-        <button onclick="changeDifficulty(1)">1</button>
-        <button onclick="changeDifficulty(2)">2</button>
-        <button onclick="changeDifficulty(3)">3</button>
+        <button onclick="changeDifficulty(1)">easy</button>
+        <button onclick="changeDifficulty(2)">chill</button>
+        <button onclick="changeDifficulty(3)">hard</button>
       </div>
     </div>
   </div>

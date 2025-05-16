@@ -141,8 +141,6 @@ td, th {
   height: 8vh;
   width: 8vh;
   background: transparent;
-  border: 0.3em solid white;
-  border-radius: 50%;
   cursor: pointer;
   position: relative;
   z-index: 1001;
@@ -202,11 +200,22 @@ td, th {
   gap: 0.3em;
 }
 
-.toggle-option {
+.options {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
+
+#music-toggle-play {
+  position: absolute;
+}
+#music-toggle-pause {
+  position: absolute;
+  display: none;
+}
+
 
 #volume-slider {
   width: 90%;
