@@ -135,9 +135,12 @@ td, th {
   z-index: 999;
 }
 
+#SettingIMG {
+  padding: 0.5em;
+}
+
 #settings button {
   margin-left: 2em;
-  padding-left: 1em;
   padding-top: 0.8em;
   height: 8vh;
   width: 8vh;
@@ -166,16 +169,15 @@ td, th {
   margin-top: 3vh;
   position: absolute;
   top: 13vh;
-  left: 0;
   background-color: #222;
   color: white;
-  padding: 1em;
   border-radius: 10px;
   box-shadow: 0 0 10px #000;
   display: none;
   flex-direction: column;
-  gap: 1em;
-  width: 250px;
+  padding-bottom: 1em;
+  padding-right: 2em;
+  width: 45vh;
   z-index: 1000;
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
