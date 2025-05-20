@@ -136,6 +136,7 @@ td, th {
 }
 
 #settings button {
+  margin-left: 2em;
   padding-left: 1em;
   padding-top: 0.8em;
   height: 8vh;
