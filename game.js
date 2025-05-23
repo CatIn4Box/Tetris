@@ -244,10 +244,6 @@ function startGame() {
   if (!sessionCheckerInterval) {
     sessionCheckerInterval = setInterval(checkAFK, 10000);
   }
-
-  volumeSlider.addEventListener("input", () => { //Prende in input il valore che viene dato in imput di tipo range
-    audio.volume = parseFloat(volumeSlider.value);
-  });
 }
 
 function logout() {
@@ -295,23 +291,26 @@ function renderScoreboard() {
   });
 }
 
-function toggleSettingsMenu() {
+function settingMenu() {
   const menu = document.getElementById("settings-menu");
   menu.classList.toggle("show");
 
   if (menu.classList.contains("show")) {
     document.addEventListener("keydown", escKeyHandler);
+    volumeSlider.addEventListener("input", () => { //Prende in input il valore che viene dato in imput di tipo range
+    audio.volume = parseFloat(volumeSlider.value);
+  });
   } else {
     document.removeEventListener("keydown", escKeyHandler);
+    volumeSlider.removeEventListener("input", () => {
+  });
   }
 }
 
 function escKeyHandler(e) {
-  if (e.key === "Escape") {
-    const menu = document.getElementById("settings-menu");
-    menu.classList.remove("show");
-    document.removeEventListener("keydown", escKeyHandler);
-  }
+  const menu = document.getElementById("settings-menu");
+  menu.classList.remove("show");
+  document.removeEventListener("keydown", escKeyHandler);
 }
 
 function changeDifficulty(diff) {
